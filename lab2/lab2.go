@@ -5,18 +5,11 @@ import (
 	"math"
 )
 
-type Task2Solver interface {
-	roundFloat(num float64) int
-	volumesSum(startRadius float64, deltaRadius float64, spheraNum int) float64
-}
-
-type T2Solver struct{}
-
-func (T *T2Solver) roundFloat(num float64) int {
+func roundFloat(num float64) int {
 	return int(num)
 }
 
-func (T *T2Solver) volumesSum(startRadius float64, deltaRadius float64, spheraNum int) float64 {
+func volumesSum(startRadius float64, deltaRadius float64, spheraNum int) float64 {
 	var volume float64 = 0.0
 	for i := 0; i < spheraNum; i++ {
 		radius := startRadius + (deltaRadius * float64(i))
@@ -27,16 +20,64 @@ func (T *T2Solver) volumesSum(startRadius float64, deltaRadius float64, spheraNu
 	return volume
 }
 
-func (T *T2Solver) ThreeNumsMax(supposedMax float64, num2 float64, num3 float64) bool {
+func ThreeNumsMax(supposedMax float64, num2 float64, num3 float64) bool {
 	if supposedMax >= num2 && supposedMax >= num3 {
 		return true
 	}
 	return false
 }
 
-func (T *T2Solver) ThreeNumsPositive(num1 float64, num2 float64, num3 float64) bool {
+func ThreeNumsPositive(num1 float64, num2 float64, num3 float64) bool {
 	if num1 >= 0 && num2 >= 0 && num3 >= 0 {
 		return true
 	}
 	return false
+}
+
+func CheckPrime(number int) bool {
+	isPrime := true
+	if number == 0 || number == 1 {
+		isPrime = false
+	} else {
+		for i := 2; i <= number/2; i++ {
+			if number%i == 0 {
+				isPrime = false
+				break
+			}
+		}
+	}
+	return isPrime
+}
+
+func findAllPrimesBelowN(number int) {
+	for i := 2; i < number; i++ {
+		if CheckPrime(i) {
+			fmt.Printf("%d ", i)
+		}
+	}
+	fmt.Printf("\n")
+}
+
+func findOnePrimeBelowN(number int) int {
+	var prime int
+	for i := 2; i < number; i++ {
+		if CheckPrime(i) {
+			prime = i
+		}
+	}
+	return prime
+}
+
+func isPerfectNumber(n int) bool {
+	var sum = 0
+	for i := 1; i < n; i++ {
+		if n%i == 0 {
+			sum = sum + i
+		}
+	}
+	if sum == n {
+		return true
+	} else {
+		return false
+	}
 }
