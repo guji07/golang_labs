@@ -73,7 +73,7 @@ func (t *TSolver) HouseSurfaceArea(height float64, width float64, windowHeight f
 		return -1
 	}
 	var windowsArea = 4 * 2 * windowHeight * windowWidth
-	var surface = height*width - windowsArea
+	var surface = 5*height*width - windowsArea
 	return surface
 }
 

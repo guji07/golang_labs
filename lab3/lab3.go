@@ -33,3 +33,17 @@ func rowSum(x float64, n int) float64 {
 	}
 	return sum
 }
+
+func secondRowSum(x float64, n int) float64 {
+	var sum float64 = 1
+	if n <= 0 {
+		return 0
+	} else if n == 1 {
+		return sum
+	}
+	for i := 2; i <= n; i++ {
+		sum += (-x) / float64(i)
+		x *= -x
+	}
+	return sum
+}

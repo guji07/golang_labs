@@ -9,13 +9,14 @@ func roundFloat(num float64) int {
 	return int(num)
 }
 
-func volumesSum(startRadius float64, deltaRadius float64, spheraNum int) float64 {
+func volumesSum(startRadius float64, deltaRadius float64, k float64) float64 {
 	var volume float64 = 0.0
-	for i := 0; i < spheraNum; i++ {
-		radius := startRadius + (deltaRadius * float64(i))
+	var radius float64 = startRadius
+	for i := 0; radius < k; i++ {
 		sphereVolume := 4 * math.Pi * math.Pow(radius, 3.0)
-		fmt.Printf("sphere volume: %f radius: %f\n", sphereVolume, radius)
+		fmt.Printf("sphere volume: %.3f radius: %.3f\n", sphereVolume, radius)
 		volume += sphereVolume
+		radius = startRadius + (deltaRadius * float64(i))
 	}
 	return volume
 }

@@ -11,6 +11,7 @@ func main() {
 			fmt.Printf("%d ", i)
 		}
 	}
+	fmt.Println()
 }
 
 func IsPrime(value int) bool {

@@ -17,5 +17,5 @@ func main() {
 			max = value
 		}
 	}
-	fmt.Printf("max ood num: %d\n", max)
+	fmt.Printf("max odd num: %d\n", max)
 }

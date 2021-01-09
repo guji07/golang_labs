@@ -8,7 +8,7 @@ import (
 func main() {
 	var radius, height float64
 	var solver Task1Solver = &TSolver{}
-	fmt.Printf("Type radius and height:")
+	fmt.Printf("Type radius and height:\n")
 	_, _ = fmt.Scanf("%f %f", &radius, &height)
 	if radius <= 0 || height <= 0 {
 		fmt.Printf("incorrect data\n")

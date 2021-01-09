@@ -8,7 +8,7 @@ import (
 
 func main() {
 	var sum int
-	fmt.Printf("\ntype numbers:\n")
+	fmt.Printf("type numbers:\n")
 	r := bufio.NewReader(os.Stdin)
 	line, _ := r.ReadString('\n')
 	ints, _ := parseInts(line)
